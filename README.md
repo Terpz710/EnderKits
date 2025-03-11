@@ -5,11 +5,13 @@
 
 A simple kits plugin for Pocketmine-MP. This plugin will allow you to create unlimited kits with easy to use permission and cool down sytsem. Very easy configurable kits.yml.
 
-- Added custom permissions
-- PiggyCustomEnchant Support👏
+- Custom permission support
+
 - Added bank notes to the kit(MUST USE MY BANK NOTES PLUGIN CALLED "BankNotesPlus")
 
-- BankNotesPlus: https://poggit.pmmp.io/ci/Terpz710/BankNotesPlus/BankNotesPlus/dev:4
+- Configurable messages
+
+- BankNotesPlus: [BankNotesPlus](https://poggit.pmmp.io/p/BankNotesPlus/1.0.5)
   
 # Permissions
 
@@ -17,93 +19,70 @@ A simple kits plugin for Pocketmine-MP. This plugin will allow you to create unl
 permissions:
   enderkits.kit:
     description: "Enderkits Perm"
-    default: true
-  enderkits.kits:
-    description: "Enderkits Perm"
-    default: true
+    default: tru
 ```
 
 # CONFIG
 
 **kits.yml**
 
-```
-# Created by Terpz710
-# To create a kit, follow this structure:
-#
-# kit_name:
-#   permissions: "enderkits.kit.(kitname)"  # Add the permission node required to access this kit
-#   armor:  # Armor items
-#     helmet:
-#       item: "item_id"  # The item ID for the helmet (e.g., "diamond_helmet")
-#       enchantments:  # Enchantments for the helmet
-#         enchantment_name: enchantment_level  # (e.g., "protection: 2")
-#       name: "Custom Helmet Name"  # Optional custom name
-#     chestplate:
-#       item: "item_id"
-#       enchantments:
-#         enchantment_name: enchantment_level
-#       name: "Custom Chestplate Name"
-#     leggings:
-#       item: "item_id"
-#       enchantments:
-#         enchantment_name: enchantment_level
-#       name: "Custom Leggings Name"
-#     boots:
-#       item: "item_id"
-#       enchantments:
-#         enchantment_name: enchantment_level
-#       name: "Custom Boots Name"
-#   items:  # Other items in the kit
-#     item_id:
-#       enchantments:
-#         enchantment_name: enchantment_level
-#       quantity: item_quantity
-#       name: "Custom Item Name"
-#   cooldown: cooldown_in_seconds
-#   banknotes:
-#     - 1000
-#     - 5000
-#     - 20000
+```php
+# Made by Terpz710 :p
+
+# To create a kit follow the preset kit down below!
+# Name, enchantment and banknotes are optional!
+
+# You may use '&' for color coding in the 'name' key
+
 kits:
   test:
-    permissions: "ALL"
+    kit_name: "Test"
+    permissions: "enderkits.kit.test"
     armor:
       helmet:
         item: "diamond_helmet"
+        name: "Test Helmet"
         enchantments:
           protection: 2
       chestplate:
         item: "diamond_chestplate"
+        name: "Test Chestplate"
         enchantments:
           protection: 2
       leggings:
         item: "diamond_leggings"
+        name: "Test Leggings"
         enchantments:
           protection: 2
       boots:
         item: "diamond_boots"
+        name: "Test Boots"
         enchantments:
           protection: 2
     items:
-      diamond_sword:
+      - item: "diamond_sword"
+        name: "&4Test Sword"
         enchantments:
           sharpness: 2
         quantity: 1
-      golden_apple:
-        quantity: 5
-      steak:
-        quantity: 32
-      strength_potion:
+      - item: "diamond_pickaxe"
+        name: "Test Pickaxe"
+        enchantments:
+          efficiency: 5
         quantity: 1
-    cooldown: 86400
+      - item: "golden_apple"
+        quantity: 5
+      - item: "steak"
+        quantity: 32
+    cooldown: 60
     banknotes:
       - 1000
       - 5000
       - 20000
 
   starter:
-    permissions: "ALL"
+    kit_name: "Starter"
+    permissions: "enderkits.kit.starter"
     armor:
       helmet:
         item: "iron_helmet"
@@ -122,20 +101,21 @@ kits:
         enchantments:
           protection: 1
     items:
-      stone_sword:
+      - item: "stone_sword"
         enchantments:
           sharpness: 1
         quantity: 1
-      stone_pickaxe:
+      - item: "stone_pickaxe"
         quantity: 1
-      bread:
+      - item: "bread"
         quantity: 32
-      apple:
+      - item: "apple"
         quantity: 10
-    cooldown: 3600
+    cooldown: 10
 
   vip:
-    permissions: "VIP"
+    kit_name: "VIP"
+    permissions: "enderkits.kit.vip"
     armor:
       helmet:
         item: "chainmail_helmet"
@@ -154,25 +134,22 @@ kits:
         enchantments:
           protection: 3
     items:
-      iron_sword:
+      - item: "iron_sword"
         enchantments:
           sharpness: 3
         quantity: 1
-      carrot:
+      - item: "carrot"
         quantity: 8
-      chicken:
+      - item: "cooked_chicken"
         quantity: 16
-      swiftness_potion:
+      - item: "potion"
+        name: "Swiftness Potion"
         quantity: 2
-    cooldown: 7200
-
+    cooldown: 10
 ```
 
 # TODO
 
-- [ ] Make a messages.yml to handle messages.
-- [ ] Add an ecomony system.(Semi completed)
-- [x] Maybe add custom enchant if pigman decides to update.
-- [ ] Add more features to the kit such effects when claimed.(Maybe)
-- [x] Add other plugin support.
-- [ ] Add UI support(Will make it an off/on)
+- [x] Make a messages.yml to handle messages
+- [ ] Add an ecomony system
+- [x] Add UI support(Will make it an off/on)
